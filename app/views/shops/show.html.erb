@@ -1,9 +1,9 @@
 <h1><%= @shop.name %></h1>
-<h3><%= @shop.rating %></h3>
-<h3>@<%= @shop.handle %></h3>
 
 <p><%= @shop.address %></p>
 <p><%= @shop.neighborhood.name %></p>
+
+<p>"<em><%= @quote.prose %></em>" – <%= @quote.author %></p>
 
 <div class="row multi-columns-row shop-gallery">
 <% @images.each do |image| %>

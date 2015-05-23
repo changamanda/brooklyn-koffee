@@ -10,6 +10,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @quote = Quote.all.sample
     @shop = Shop.find(params[:id])
 
     if !@shop.instagram_id
