@@ -1,0 +1,9 @@
+<h2>Instagram is artsy.</h2>
+<% @handle_shops.each do |shop| %>
+  <%= link_to(shop.name, shop) %> | <%= shop.rating %> | <%= shop.address %> (<%= shop.neighborhood.name %>) | <%= link_to("Edit", edit_shop_path(shop)) %><br>
+<% end %>
+
+<h2>No, it's so over, bro.</h2>
+<% @other_shops.each do |shop| %>
+  <%= shop.name %> | <%= shop.rating %> | <%= shop.address %> (<%= shop.neighborhood.name %>) | <%= link_to("Edit", edit_shop_path(shop)) %><br>
+<% end %>

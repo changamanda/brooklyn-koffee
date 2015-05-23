@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
+  resources :neighborhoods, only: [:index]
+  resources :shops, only: [:index, :show, :edit, :update] do
+    resources :bookmarks, only: [:create]
+  end
+  root 'shops#index'
+  resources :bookmarks, only: [:destroy]
+
   devise_for :users
+
+  get '/admin' => 'shops#admin'
+  get 'users/:id' => 'users#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -62,3 +62,6 @@ end
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
+gem 'dotenv-rails'
+gem 'yelp', require: 'yelp'
+gem 'instagram'

@@ -1,0 +1,28 @@
+<h2>A cup of coffee makes everything better.</h2>
+
+<ul id="filters" class="filter font-alt hidden-xs">
+  <li><a href="#" data-filter="*" class="current wow fadeInUp animated" style="visibility: visible;">All</a></li>
+  <% @neighborhood_ids.each do |neighborhood_id| %>
+    <li><a href="#" data-filter=".<%= Neighborhood.find(neighborhood_id).name.gsub(/[\s,]/, "").downcase %>" class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible; -webkit-animation-delay: 0.2s;"><%= Neighborhood.find(neighborhood_id).name.gsub(", Brooklyn", "") %></a></li>
+  <% end %>
+</ul>
+
+<ul id="works-grid" class="works-grid works-grid-gut works-grid-4 works-hover-w" style="position: relative; height: 531px;">
+<% @handle_shops.sort_by{|shop| shop.name }.each do |shop| %>
+  <!-- Portfolio item start -->
+  <li class="work-item <%= shop.neighborhood.name.gsub(/[\s,]/, "").downcase %>" style="position: absolute; left: 0px; top: 0px;">
+    <a href="/shops/<%= shop.id %>">
+      <div class="work-image">
+        <%= image_tag(shop.image_url, width: 300) %>
+      </div>
+      <div class="work-caption font-alt">
+        <h3 class="work-title"><%= shop.name %></h3>
+        <div class="work-descr">
+          <%= shop.neighborhood.name.gsub(", Brooklyn", "") %>
+        </div>
+      </div>
+    </a>
+  </li>
+  <!-- Portfolio item end -->
+<% end %>
+</ul>

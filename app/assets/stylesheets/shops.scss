@@ -1,0 +1,22 @@
+// Place all the styles related to the shops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.shop-gallery{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.gallery-item a:focus{
+  outline: 0px;
+}
+
+#works-grid{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.filter{
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
