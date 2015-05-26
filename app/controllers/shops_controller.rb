@@ -33,4 +33,11 @@ class ShopsController < ApplicationController
     @other_shops = Shop.where("rating >= 4 AND handle IS NULL")
   end
 
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+
+    redirect_to '/admin'
+  end
+
 end

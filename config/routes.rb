@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :neighborhoods, only: [:index]
-  resources :shops, only: [:index, :show, :edit, :update] do
+  resources :shops, only: [:index, :show, :edit, :update, :destroy] do
     resources :bookmarks, only: [:create]
   end
   root 'shops#index'

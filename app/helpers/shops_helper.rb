@@ -5,6 +5,12 @@ module ShopsHelper
     end
   end
 
+  def bookmark_or_unbookmark
+    if current_user
+      !current_user.bookmarked?(@shop) ? link_to(fa_icon("bookmark-o"), shop_bookmarks_path(@shop.id), method: :post, remote: true) : link_to(fa_icon("bookmark"), bookmark_path(current_user.bookmark_id(@shop)), method: :delete, remote: true)
+    end
+  end
+
   def author_if_author
     " – #{@quote.author}" if @quote.author
   end

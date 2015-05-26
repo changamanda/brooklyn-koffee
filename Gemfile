@@ -65,3 +65,4 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'yelp', require: 'yelp'
 gem 'instagram'
+gem "font-awesome-rails"

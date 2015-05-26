@@ -1,4 +1,4 @@
-<h1><%= @shop.name %></h1>
+<h1><%= @shop.name %> <%= bookmark_or_unbookmark %></h1>
 
 <p><%= @shop.address %></p>
 <p><%= @shop.neighborhood.name %></p>
@@ -10,5 +10,3 @@
   <%= render partial: "image", locals: {image: image, shop: @shop} %>
 <% end %>
 </div>
-
-<%= save_or_unsave %>
