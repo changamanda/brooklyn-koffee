@@ -1,0 +1,15 @@
+<!-- Portfolio item start -->
+<li class="work-item <%= shop.neighborhood.name.gsub(/[\s,]/, "").downcase %>" style="position: absolute; left: 0px; top: 0px;">
+  <a href="/shops/<%= shop.id %>">
+    <div class="work-image">
+      <%= image_tag(shop.image_url, width: 300) %>
+    </div>
+    <div class="work-caption font-alt">
+      <h3 class="work-title"><%= shop.name %></h3>
+      <div class="work-descr">
+        <%= shop.neighborhood.name.gsub(", Brooklyn", "") %>
+      </div>
+    </div>
+  </a>
+</li>
+<!-- Portfolio item end -->

@@ -1,0 +1,1 @@
+<li><a href="#" data-filter=".<%= Neighborhood.find(neighborhood_id).name.gsub(/[\s,]/, "").downcase %>" class="wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible; -webkit-animation-delay: 0.2s;"><%= Neighborhood.find(neighborhood_id).name.gsub(", Brooklyn", "") %></a></li>
