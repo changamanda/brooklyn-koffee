@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   get '/admin' => 'shops#admin'
-  get 'users/:id' => 'users#show'
+  get 'users/:id' => 'users#show', as: 'user'
+  get 'users/:id/photo' => 'users#editphoto', as: 'edit_photo'
+  post 'users/:id/photo' => 'users#updatephoto', as: 'update_photo'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
