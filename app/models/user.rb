@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bookmarks
+  mount_uploader :image, ImageUploader
 
   def bookmark_id(shop)
     Bookmark.find_by(user_id: self.id, shop_id: shop.id).id
