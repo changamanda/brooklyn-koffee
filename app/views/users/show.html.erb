@@ -1,7 +1,7 @@
 <h1><%= @user.name %></h1>
 <h5><%= @user.email %></h5>
 
-<%= image_tag(@user.image) %>
+<%= image_tag @user.image, width: 200 %>
 
 <h2>I Wanna Go Here.</h2>
 <% @user.bookmarks.each do |bookmark| %>

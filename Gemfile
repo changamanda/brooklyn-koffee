@@ -68,3 +68,4 @@ gem 'instagram'
 gem "font-awesome-rails"
 
 gem 'carrierwave'
+gem "fog"
