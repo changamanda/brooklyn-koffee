@@ -1,5 +1,5 @@
+<h2>Edit Photo</h2>
 <%= form_for @user, url: update_photo_path, method: :post, html: { multipart: true } do |f| %>
-  <%= f.label :image %>
   <%= f.file_field :image %>
   <%= f.submit "Save", class: "btn btn-primary" %>
 <% end %>

@@ -2,6 +2,7 @@
 <h5><%= @user.email %></h5>
 
 <%= image_tag @user.image, width: 200 %>
+<p><%= link_to("Edit Photo", edit_photo_path(@user.id), class: "btn btn-default btn-xs", id: "photo-button") %></p>
 
 <h2>I Wanna Go Here.</h2>
 <% @user.bookmarks.each do |bookmark| %>
