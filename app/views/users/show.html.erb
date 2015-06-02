@@ -1,8 +1,8 @@
 <h1><%= @user.name %></h1>
 <h5><%= @user.email %></h5>
 
-<%= image_tag @user.image, width: 200 %>
-<p><%= link_to("Edit Photo", edit_photo_path(@user.id), class: "btn btn-default btn-xs", id: "photo-button") %></p>
+<%= image_if_image %>
+<%= edit_image_if_current_user %>
 
 <h2>I Wanna Go Here.</h2>
 <% @user.bookmarks.each do |bookmark| %>
