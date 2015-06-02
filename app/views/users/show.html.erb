@@ -2,7 +2,7 @@
 <h5><%= @user.email %></h5>
 
 <%= image_if_image %>
-<%= edit_image_if_current_user %>
+<p><%= edit_image_if_current_user %></p>
 
 <h2>I Wanna Go Here.</h2>
 <% @user.bookmarks.each do |bookmark| %>
