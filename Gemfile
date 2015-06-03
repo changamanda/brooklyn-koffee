@@ -69,3 +69,5 @@ gem "font-awesome-rails"
 
 gem 'carrierwave'
 gem "fog"
+
+gem 'google_places'

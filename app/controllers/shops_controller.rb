@@ -40,4 +40,16 @@ class ShopsController < ApplicationController
     redirect_to '/admin'
   end
 
+  def info
+    @shop = Shop.find(params[:id])
+
+    @client = GooglePlaces::Client.new(ENV['GOOGLE_PLACES'])
+    spots = @client.spots_by_query("#{@shop.address}, #{@shop.neighborhood.name}")
+    @spot = spots.first
+
+    respond_to do |format|
+      format.json { render json: { shop: @shop, spot: @spot }}
+    end
+  end
+
 end

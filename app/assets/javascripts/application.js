@@ -27,4 +27,5 @@
 //= require owl.carousel.min
 //= require contact
 //= require custom
+//= require jquery-readyselector
 //= require_tree .
