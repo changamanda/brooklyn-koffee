@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :neighborhoods, only: [:index]
+  get '/shops/map' => 'shops#map', as: 'map'
+  get '/shops/map/info' => 'shops#mapinfo', as: 'map_info'
+  
   resources :shops, only: [:index, :show, :edit, :update, :destroy] do
     resources :bookmarks, only: [:create]
   end

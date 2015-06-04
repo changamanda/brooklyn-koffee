@@ -28,6 +28,13 @@
   width: 50%;
 }
 
+#bigmap-canvas{
+  margin: 0 auto;
+  margin-bottom: 3%;
+  height: 600px;
+  width: 80%;
+}
+
 @media screen and (max-width: 768px) {
   #map-canvas{
     width: 70%;

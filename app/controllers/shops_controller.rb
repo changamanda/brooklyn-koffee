@@ -52,4 +52,18 @@ class ShopsController < ApplicationController
     end
   end
 
+  def map
+  end
+
+  def mapinfo
+    @all_shops = Shop.where("rating >= 4 AND handle IS NOT NULL")
+    @client = GooglePlaces::Client.new(ENV['GOOGLE_PLACES'])
+
+    @all_spots = @all_shops.map{|shop| @client.spots_by_query("#{shop.address}, #{shop.neighborhood.name}").first }
+
+    respond_to do |format|
+      format.json { render json: { allShops: @all_shops, allSpots: @all_spots } }
+    end
+  end
+
 end
