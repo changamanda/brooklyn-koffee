@@ -31,13 +31,15 @@ function initializeBig (response) {
 }
 
 function addMarkerBig (map, response) {
-  response['allShops'].forEach(function(spot, i){
-    var name = spot['name'];
-    var address = spot['address'];
+  response['allShops'].forEach(function(shop, i){
+    var id = shop['id'];
+    var name = shop['name'];
+    var address = shop['address'];
+    var url = window.location.href.replace("map", "");
 
     var query = "https://www.google.com/maps?q=" + address.replace(/\s/g, "+") + "+Brooklyn+NY";
 
-    var contentString = '<h5>' + name + '</h5><p><a href="' + query + '" target = "_blank">' + address + '</a></p>';
+    var contentString = '<h5><a href="' + url + id + '" target = "_blank">' + name + '</a></h5><p><a href="' + query + '" target = "_blank">' + address + '</a></p>';
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
