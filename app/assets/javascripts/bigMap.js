@@ -44,8 +44,8 @@ function addMarkerBig (map, response) {
         content: contentString
     });
 
-    var lat = response['allSpots'][i]['lat'];
-    var lng = response['allSpots'][i]['lng'];
+    var lat = response['allShops'][i]['lat'];
+    var lng = response['allShops'][i]['lng'];
     var myLatlng = new google.maps.LatLng(lat, lng);
 
     var marker = new google.maps.Marker({

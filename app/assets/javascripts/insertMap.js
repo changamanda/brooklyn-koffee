@@ -12,8 +12,8 @@ $('#map-canvas').ready(function(){
 
 var map;
 function initialize (object) {
-  var lat = object['spot']['lat']
-  var lng = object['spot']['lng']
+  var lat = object['shop']['lat']
+  var lng = object['shop']['lng']
 
   var myLatlng = new google.maps.LatLng(lat, lng);
 

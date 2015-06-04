@@ -13,13 +13,12 @@ class ShopsController < ApplicationController
     @quote = Quote.all.sample
     @shop = Shop.find(params[:id])
 
-    if !@shop.instagram_id
-      id = Instagram.user_search(@shop.handle).find{|user| user["username"] == @shop.handle}["id"]
-      @shop.update(instagram_id: id)
-    end
+    @shop.update_instagram_id
 
-    @images = Instagram.user_recent_media(@shop.instagram_id, {:count => 6})
+    @images = @shop.instagram_images
     @shop.update(image_url: @images.first["images"]["standard_resolution"]["url"])
+
+    @shop.update_coords
   end
 
   def update
@@ -43,26 +42,16 @@ class ShopsController < ApplicationController
   def info
     @shop = Shop.find(params[:id])
 
-    @client = GooglePlaces::Client.new(ENV['GOOGLE_PLACES'])
-    spots = @client.spots_by_query("#{@shop.address}, #{@shop.neighborhood.name}")
-    @spot = spots.first
-
     respond_to do |format|
-      format.json { render json: { shop: @shop, spot: @spot }}
+      format.json { render json: { shop: @shop }}
     end
   end
 
-  def map
-  end
-
   def mapinfo
-    @all_shops = Shop.where("rating >= 4 AND handle IS NOT NULL")
-    @client = GooglePlaces::Client.new(ENV['GOOGLE_PLACES'])
-
-    @all_spots = @all_shops.map{|shop| @client.spots_by_query("#{shop.address}, #{shop.neighborhood.name}").first }
+    @all_shops = Shop.where("rating >= 4 AND handle IS NOT NULL AND lat IS NOT NULL")
 
     respond_to do |format|
-      format.json { render json: { allShops: @all_shops, allSpots: @all_spots } }
+      format.json { render json: { allShops: @all_shops } }
     end
   end
 
