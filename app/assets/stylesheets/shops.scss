@@ -23,6 +23,14 @@
 
 #map-canvas{
   margin: 0 auto;
+  margin-bottom: 3%;
   height: 400px;
   width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  #map-canvas{
+    width: 70%;
+    margin-bottom: 10%;
+  }
 }
