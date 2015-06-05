@@ -39,7 +39,7 @@ function addMarkerBig (map, response) {
 
     var query = "https://www.google.com/maps?q=" + address.replace(/\s/g, "+") + "+Brooklyn+NY";
 
-    var contentString = '<h5><a href="' + url + id + '" target = "_blank">' + name + '</a></h5><p><a href="' + query + '" target = "_blank">' + address + '</a></p>';
+    var contentString = '<h5><a href="' + url + id + '">' + name + '</a></h5><p><a href="' + query + '" target = "_blank">' + address + '</a></p>';
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
