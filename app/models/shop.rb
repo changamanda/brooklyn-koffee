@@ -12,10 +12,10 @@ class Shop < ActiveRecord::Base
   end
 
   def update_instagram_id
-    if !self.instagram_id
+    # if !self.instagram_id
       id = Instagram.user_search(self.handle).find{|user| user["username"] == self.handle}["id"]
       self.update(instagram_id: id)
-    end
+    # end
   end
 
   def instagram_images
