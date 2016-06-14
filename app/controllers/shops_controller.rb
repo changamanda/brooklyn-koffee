@@ -13,10 +13,11 @@ class ShopsController < ApplicationController
     @quote = Quote.all.sample
     @shop = Shop.find(params[:id])
 
-    @shop.update_instagram_id
+    # @shop.update_instagram_id
 
-    @images = @shop.instagram_images
-    @shop.update(image_url: @images.first["images"]["standard_resolution"]["url"])
+    @images = []
+    # @images = @shop.instagram_images
+    # @shop.update(image_url: @images.first["images"]["standard_resolution"]["url"])
 
     @shop.update_coords
   end

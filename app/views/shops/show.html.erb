@@ -1,4 +1,4 @@
-<h1><%= @shop.name %> <%= bookmark_or_unbookmark %></h1>
+<h1><%= @shop.name %> <%= bookmark_or_unbookmark %> <a href="https://instagram.com/<%= @shop.handle %>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></h1>
 <!-- <a class="twitter-share-button"
   href="https://twitter.com/intent/tweet">
 Tweet</a> -->
@@ -8,11 +8,11 @@ Tweet</a> -->
 
 <p>"<em><%= @quote.prose %></em>"<%= author_if_author %></p>
 
-<div class="row multi-columns-row shop-gallery">
+<!-- <div class="row multi-columns-row shop-gallery">
 <% @images.each do |image| %>
   <%= render partial: "image", locals: {image: image, shop: @shop} %>
 <% end %>
-</div>
+</div> -->
 
 <h3>Visit <%= @shop.name %>.</h3>
 <div id = "map-canvas"></div>
